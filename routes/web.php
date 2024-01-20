@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'home')->name('home');
+Route::get('/', [CategoriaController::class, 'indexHome'])->name('home');
 Route::view('/producto', 'producto')->name('producto');
+Route::post('categorias/guardar', [CategoriaController::class, 'guardarCategoria'])->name('categoria.guardar');
+Route::post('/guardar-producto', [ProductoController::class, 'agregarProducto'])->name('guardar_producto');
 
 Route::middleware(['guest'])->group(function () {
     Route::view('/login', 'auth.login')->name('login');
@@ -27,7 +30,7 @@ Route::middleware(['guest'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::view('/panel', 'panel')->name('panel');
-    Route::view('/admin', 'opciones.admin')->name('admin');
+    Route::get('/admin', [CategoriaController::class, 'index'])->name('admin');
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-    Route::post('/guardar_categoria', [CategoriaController::class, 'guardarCategoria'])->name('guardar_categoria');
+    
 });

@@ -7,21 +7,21 @@
                 <div class="row clearfix">
                     <div class="find-box">
                         <h1>Lorem, ipsum dolor.<br>Lorem, ipsum dolor.</h1>
-                        {{-- <div class="product-sh">
+                        <div class="product-sh">
                             <div class="col-sm-3">
                                 <div class="form-sh">
-                                    <select class="form-select">
-                                        <option>Todo</option>
-                                        <option>Remeras</option>
-                                        <option>Pantalones</option>
-                                        <option>Zapatillas</option>
+                                    <select class="form-select" name="categoria_id">
+                                        <option value="">Seleccione una categoría</option>
+                                        @foreach ($categorias as $categoria)
+                                            <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-sh"> <a class="btn" href="#">Buscar</a> </div>
                             </div>
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
                 <div class="row clearfix">

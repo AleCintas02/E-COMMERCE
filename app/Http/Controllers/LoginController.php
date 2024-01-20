@@ -23,7 +23,7 @@ class LoginController extends Controller
 
 
         if ($validator->fails()) {
-            return redirect(route('registro'))->withErrors($validator)->withInput();
+            return redirect(route('register'))->withErrors($validator)->withInput();
         }
 
         $user = User::create([
