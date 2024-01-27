@@ -5,90 +5,44 @@
         <div class="main-product">
             <div class="container">
                 <div class="row clearfix">
-                    <div class="find-box">
-                        <h1>Lorem, ipsum dolor.<br>Lorem, ipsum dolor.</h1>
-                        <div class="product-sh">
-                            <div class="col-sm-3">
-                                <div class="form-sh">
-                                    <select class="form-select" name="categoria_id">
-                                        <option value="">Seleccione una categoría</option>
-                                        @foreach ($categorias as $categoria)
-                                            <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                    <div class="find-box mt-5">
+                        <h1>Elige una categoría</h1>
+
+                        <form action="{{ route('home') }}" method="GET" class="mb-3">
+                            <div class="input-group">
+                                <select class="form-select" name="categoria_id">
+                                    <option value="">Todo</option>
+                                    @foreach ($categorias as $categoria)
+                                        <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+                                    @endforeach
+                                </select>
+                                <button type="submit" class="btn btn-primary">Buscar</button>
                             </div>
-                            <div class="col-sm-3">
-                                <div class="form-sh"> <a class="btn" href="#">Buscar</a> </div>
-                            </div>
-                        </div>
+                        </form>
+                        <a href="{{ route('home') }}">Mostrar todo</a>
+
+
                     </div>
                 </div>
                 <div class="row clearfix">
-                    <div class="col-lg-3 col-sm-6 col-md-3">
-                        <a href="#">
-                            <div class="box-img">
-                                <h4>Categoria 1</h4>
-                                <img src="images/product/1.png" alt="" />
+
+                    @if ($productos->isEmpty())
+                        <p>No hay productos en esta categoría.</p>
+                    @else
+                        @foreach ($productos as $producto)
+                            <div class="col-lg-3 col-sm-6 col-md-3">
+                                <a href="#">
+                                    <div class="box-img">
+                                        <h4>{{ $producto->nombre }}</h4>
+                                        <img style="width: 200px; border-radius: 30px"
+                                            src="{{ asset('storage/' . $producto->imagen) }}" alt="{{ $producto->nombre }}">
+                                        <h4>${{ $producto->precio }}</h4>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-md-3">
-                        <a href="#">
-                            <div class="box-img">
-                                <h4>Categoria 2</h4>
-                                <img src="images/product/2.png" alt="" />
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-md-3">
-                        <a href="#">
-                            <div class="box-img">
-                                <h4>Categoria 3</h4>
-                                <img src="images/product/4.png" alt="" />
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-md-3">
-                        <a href="#">
-                            <div class="box-img">
-                                <h4>Categoria 4</h4>
-                                <img src="images/product/5.png" alt="" />
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-md-3">
-                        <a href="#">
-                            <div class="box-img">
-                                <h4>Categoria 5</h4>
-                                <img src="images/product/10.png" alt="" />
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-md-3">
-                        <a href="#">
-                            <div class="box-img">
-                                <h4>Categoria 6</h4>
-                                <img src="images/product/11.png" alt="" />
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-md-3">
-                        <a href="#">
-                            <div class="box-img">
-                                <h4>Categoria 7</h4>
-                                <img src="images/product/12.png" alt="" />
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-md-3">
-                        <a href="#">
-                            <div class="box-img">
-                                <h4>Categoria 8</h4>
-                                <img src="images/product/13.png" alt="" />
-                            </div>
-                        </a>
-                    </div>
+                        @endforeach
+                    @endif
+
                     {{-- <div class="categories_link">
                         <a href="#">Browse all categories here</a>
                     </div> --}}

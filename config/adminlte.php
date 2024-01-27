@@ -312,6 +312,12 @@ return [
             'can'  => 'manage-blog',
         ],
         [
+            'text'        => 'Panel',
+            'url'         => '/panel',
+            'icon'        => 'fas fa-fw fa-columns',
+            'label_color' => 'success',
+        ],
+        [
             'text'        => 'Inicio',
             'url'         => '/',
             'icon'        => 'fas fa-fw fa-home',
@@ -368,9 +374,21 @@ return [
             ],
         ],
         [
-            'text' => 'ADMIN',
-            'url'  => 'admin',
-            'icon' => 'fas fa-fw fa-star',
+            'text'    => 'ADMIN',
+            'icon'    => 'fas fa-fw fa-star',
+            'submenu' => [
+                [
+                    'text' => 'Categorias',
+                    'url'  => 'admin-categorias',
+                    'icon' => 'fas fa-fw fa-arrow-circle-right',
+                ],
+                [
+                    'text'    => 'Productos',
+                    'url'     => 'admin-productos',
+                    'icon' => 'fas fa-fw fa-arrow-circle-right',
+                ],
+            ],
+            'can' => 'view-admin-section',
         ],
         [
             'text' => 'Salir',

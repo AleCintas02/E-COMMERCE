@@ -9,8 +9,6 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!--fontawesome css-->
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <!--bootstrap css-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!--animate css-->
     <link rel="stylesheet" href="css/animate-wow.css">
     <!--main css-->
@@ -19,6 +17,7 @@
     <link rel="stylesheet" href="css/slick.min.css">
     <!--responsive css-->
     <link rel="stylesheet" href="css/responsive.css">
+
 
 
     <title>Document</title>
@@ -32,7 +31,7 @@
                 <label for="check" class="checkbtn">
                     <i class="fas fa-bars"></i>
                 </label>
-                <label class="logo">E-Commerce</label>
+                <label class="logo">logo</label>
                 <ul>
                     <li><a href="{{ route('home') }}">Inicio</a></li>
                     @auth

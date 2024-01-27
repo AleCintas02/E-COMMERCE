@@ -101,6 +101,11 @@ textarea {
 	2. HEADER 
 -------------------------------------------------------------*/
 
+#header{
+	position: fixed;
+	width: 100%;
+	z-index: 100;
+}
 
   nav{
 	background: #0082e6;

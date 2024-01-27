@@ -14,11 +14,15 @@
     @section('title', 'Dashboard')
 
     @section('content_header')
-        <h1>  {{ Auth::user()->nombre }}</h1>
+        
     @stop
 
     @section('content')
-        <p>Welcome to this beautiful admin panel.</p>
+        @if (auth()->user()->role == 'root')
+            <p>Bienvenido, {{ Auth::user()->nombre }}!. En el menu de opciones, podrás ver una opción llamada "ADMIN" en la que tendrás acceso la administración de la empresa</p>
+        @else
+        <p>Bienvenido, {{ Auth::user()->nombre }}!. Con el menu de opciones podrás gestionar tus pedidos y modifica tu información</p>
+        @endif
     @stop
 
     @section('css')
@@ -27,7 +31,7 @@
 
     @section('js')
         <script>
-            console.log('Hi!');
+            
         </script>
     @stop
 </body>
