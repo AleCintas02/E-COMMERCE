@@ -31,14 +31,24 @@
                     @else
                         @foreach ($productos as $producto)
                             <div class="col-lg-3 col-sm-6 col-md-3">
-                                <a href="#">
-                                    <div class="box-img">
-                                        <h4>{{ $producto->nombre }}</h4>
-                                        <img style="width: 200px; border-radius: 30px"
-                                            src="{{ asset('storage/' . $producto->imagen) }}" alt="{{ $producto->nombre }}">
-                                        <h4>${{ $producto->precio }}</h4>
-                                    </div>
-                                </a>
+                                <div class="box-img">
+                                    <h4>{{ $producto->nombre }}</h4>
+                                    <img class="img-product" src="{{ asset('storage/' . $producto->imagen) }}"
+                                        alt="{{ $producto->nombre }}">
+                                    <h4>${{ $producto->precio }}</h4>
+            
+
+
+                                    <form action="{{ route('carrito.agregar', $producto->id) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="button-68 mb-3">Agregar al carrito</button>
+                                    </form>
+
+
+
+                                    <br>
+                                    <a href="{{ route('producto-detalle', $producto->id) }}" class="mas-info">Mas info</a>
+                                </div>
                             </div>
                         @endforeach
                     @endif
@@ -90,3 +100,20 @@
         </div>
     </div>
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- HTML !-->

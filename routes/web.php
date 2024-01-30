@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::view('/producto', 'producto')->name('producto');
+Route::get('/producto/{id}', [ProductoController::class, 'detalleProducto'])->name('producto-detalle');
 
 
 Route::middleware(['guest'])->group(function () {
@@ -38,10 +39,22 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/eliminar-producto/{id}', [ProductoController::class, 'eliminarProducto'])->name('eliminar_producto');
     Route::put('/actualizar-producto/{id}', [ProductoController::class, 'actualizarProducto'])->name('actualizar_producto');
     Route::get('/editar-producto/{id}', [ProductoController::class, 'editarProducto'])->name('editar_producto');
-    
+
     Route::get('/editar-CATEGORIA/{id}', [categoriaController::class, 'editarCategoria'])->name('editar_categoria');
     Route::delete('/eliminar-categoria/{id}', [CategoriaController::class, 'eliminarCategoria'])->name('eliminar_categoria');
     Route::put('/actualizar-categoria/{id}', [CategoriaController::class, 'actualizarCategoria'])->name('actualizar_categoria');
 
 
+
+    // Ruta para ver el contenido del carrito de compras
+    Route::get('/carrito', [CarritoController::class, 'verCarrito'])->name('carrito.ver');
+
+    // Ruta para agregar un producto al carrito de compras
+    Route::post('/carrito/agregar/{id}', [CarritoController::class, 'agregarProducto'])->name('carrito.agregar');
+
+    // Ruta para eliminar un producto del carrito de compras
+    Route::delete('/carrito/eliminar/{id}', [CarritoController::class, 'eliminarProducto'])->name('carrito.eliminar');
+
+    // Ruta para realizar el proceso de compra
+    Route::post('/carrito/comprar', [CarritoController::class, 'comprar'])->name('carrito.comprar');
 });

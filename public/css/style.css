@@ -81,7 +81,7 @@ a:focus {
 	-ms-text-decoration: none;
 	-o-text-decoration: none;
 	text-decoration: none;
-	transition: ease all 0.5s;
+
 }
 
 img {
@@ -98,13 +98,89 @@ textarea {
 
 
 /*------------------------------------------------------------- 
+	Boton Carrito 
+-------------------------------------------------------------*/
+
+.button-68 {
+  appearance: none;
+  backface-visibility: hidden;
+  background-color: #27ae60;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.5;
+  outline: none;
+  overflow: hidden;
+  padding: 13px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.button-68:hover {
+  background-color: #1e8449;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: .35s;
+}
+
+.button-68:active {
+  transform: translateY(2px);
+  transition-duration: .35s;
+}
+
+.button-68:hover {
+  box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+}
+
+.mas-info{
+	color: white;
+	font-weight: bold;
+	transition: ease all 0.5s;
+	padding: 10px;
+}
+
+.mas-info:hover{
+	background: #0a2941;
+	transition: .5s;
+	border-radius: 10px;
+}
+
+.carrito-contenedor{
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.tabla{
+
+}
+
+/*------------------------------------------------------------- 
 	2. HEADER 
 -------------------------------------------------------------*/
 
 #header{
 	position: fixed;
 	width: 100%;
-	z-index: 100;
+	z-index: 998;
 }
 
   nav{
@@ -112,7 +188,7 @@ textarea {
 	height: 80px;
 	width: 100%;
   }
-  label.logo{
+  .logo{
 	color: white;
 	font-size: 35px;
 	line-height: 80px;
@@ -135,10 +211,7 @@ textarea {
 	border-radius: 3px;
 	text-transform: uppercase;
   }
-  a.active,a:hover{
-	background: #1b9bff;
-	transition: .5s;
-  }
+ 
   .checkbtn{
 	font-size: 30px;
 	color: white;
@@ -152,7 +225,7 @@ textarea {
 	display: none;
   }
   @media (max-width: 952px){
-	label.logo{
+	.logo{
 	  font-size: 30px;
 	  padding-left: 50px;
 	}
@@ -233,7 +306,6 @@ textarea {
 	padding-bottom: 22px;
 }
 
-.product-sh {}
 
 .form-sh input {
 	background: none;
@@ -370,7 +442,8 @@ textarea {
 	background: #051d36;
 	text-align: center;
 	padding-bottom: 30px;
-	min-height: 280px;
+	min-height: 500px;
+	max-height: 500px;
 	margin-bottom: 30px;
 	position: relative;
 	border-bottom: solid #007dea 3px;
@@ -387,10 +460,14 @@ textarea {
 	letter-spacing: 0px;
 }
 
-.box-img:hover {
-	cursor: pointer;
+/* .box-img:hover {
 	transform: scale(1.1);
 	background: #007dea;
+} */
+
+.img-product{
+	width: 200px; 
+	border-radius: 30px
 }
 
 .food {
@@ -1729,6 +1806,7 @@ textarea {
 
 .cooming-logo {
 	padding: 9px 0px;
+	
 }
 
 .top-soon {

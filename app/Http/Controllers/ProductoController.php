@@ -127,4 +127,10 @@ class ProductoController extends Controller
 
         return redirect()->route('admin-productos')->with('success-update-product', 'Producto actualizado exitosamente.');
     }
+
+    public function detalleProducto($id)
+    {
+        $producto = Producto::findOrFail($id);
+        return view('detalles', compact('producto'));
+    }
 }

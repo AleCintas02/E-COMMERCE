@@ -8,15 +8,23 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!--fontawesome css-->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
     <!--animate css-->
-    <link rel="stylesheet" href="css/animate-wow.css">
+    <link rel="stylesheet" href="{{ asset('css/animate-wow.css') }}">
     <!--main css-->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bootstrap-select.min.css">
-    <link rel="stylesheet" href="css/slick.min.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-select.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/slick.min.css') }}">
     <!--responsive css-->
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+    <script src="https://kit.fontawesome.com/1d10b38d89.js" crossorigin="anonymous"></script>
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{{ asset('css/carrito/style.css') }}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{{ asset('css/carrito/responsive.css') }}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('css/carrito/custom.css') }}">
+
 
 
 
@@ -31,30 +39,34 @@
                 <label for="check" class="checkbtn">
                     <i class="fas fa-bars"></i>
                 </label>
-                <label class="logo">logo</label>
+                <a href="{{ route('home') }}" class="logo">logo</a>
                 <ul>
+                    <li style="padding-right: 20px">
+                        <a href="{{ route('carrito.ver') }}">
+                            <i class="fas fa-shopping-cart"></i>
+                            @auth
+                                @if (Auth::user()->carritos->sum('cantidad') > 0)
+                                    <span class="badge"
+                                        style=" position: absolute; margin-right: 100px; margin-top: 30px;">{{ Auth::user()->carritos->sum('cantidad') }}</span>
+                                @endif
+                            @endauth
+                        </a>
+                    </li>
                     <li><a href="{{ route('home') }}">Inicio</a></li>
                     @auth
+                        <li><a href="{{ route('panel') }}">Panel</a></li>
 
-                        <li class="nav-item dropdown">
-                            <a class=" dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                {{ Auth::user()->nombre }}
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{ route('panel') }}">Panel</a></li>
-                                <li><a href="{{ route('logout') }}">Salir</a></li>
-                            </ul>
-                        </li>
+
+                        <li><a href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket"></i></a></li>
                     @else
                         <li><a href="{{ route('login') }}">Iniciar sesión</a></li>
                         <li><a href="{{ route('register') }}">Registrarse</a></li>
                     @endauth
-
                 </ul>
             </nav>
         </header>
     @show
+
 
     <div>
         @yield('content')
