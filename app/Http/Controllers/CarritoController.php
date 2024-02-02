@@ -68,4 +68,6 @@ class CarritoController extends Controller
     {
         // Lógica para realizar el proceso de compra
     }
+
+
 }

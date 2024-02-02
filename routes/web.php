@@ -4,6 +4,7 @@ use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Route;
 
@@ -57,4 +58,9 @@ Route::middleware(['auth'])->group(function () {
 
     // Ruta para realizar el proceso de compra
     Route::post('/carrito/comprar', [CarritoController::class, 'comprar'])->name('carrito.comprar');
+
+
+    Route::get('/procesar-pago', 'CarritoController@procesarPago')->name('carrito.procesar-pago');
+    Route::post('/guardar-direccion', 'CarritoController@guardarDireccion')->name('carrito.guardar-direccion');
+    Route::get('/confirmar-compra', 'CarritoController@confirmarCompra')->name('carrito.confirmar-compra');
 });

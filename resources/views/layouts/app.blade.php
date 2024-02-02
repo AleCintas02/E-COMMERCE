@@ -54,7 +54,7 @@
                     </li>
                     <li><a href="{{ route('home') }}">Inicio</a></li>
                     @auth
-                        <li><a href="{{ route('panel') }}">Panel</a></li>
+                        <li><a href="{{ route('panel') }}">Cuenta</a></li>
 
 
                         <li><a href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket"></i></a></li>

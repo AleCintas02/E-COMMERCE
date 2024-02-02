@@ -169,8 +169,12 @@ textarea {
 	flex-direction: column;
 }
 
-.tabla{
-
+.procesar-pago{
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 /*------------------------------------------------------------- 
@@ -178,9 +182,10 @@ textarea {
 -------------------------------------------------------------*/
 
 #header{
-	position: fixed;
-	width: 100%;
-	z-index: 998;
+	position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 998;
 }
 
   nav{

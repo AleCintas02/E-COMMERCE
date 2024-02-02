@@ -43,7 +43,11 @@
                 </tbody>
             </table>
 
-            <a href="#" class="btn btn-primary">Procesar pago</a>
+            <div>
+                <a href="{{route('home')}}" class="btn btn-primary">Seguir comprando</a>
+                <a href="" class="btn btn-success">Procesar pago</a>
+
+            </div>
         @endif
     </div>
 @endsection
