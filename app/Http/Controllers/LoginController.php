@@ -14,7 +14,7 @@ class LoginController extends Controller
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'user' => ['string', 'max:20', Rule::unique('users', 'user')],
+            //'user' => ['string', 'max:20', Rule::unique('users', 'user')],
             'nombre' => ['required', 'string', 'max:255', Rule::unique('users', 'nombre')],
             'apellido' => ['required', 'string', 'max:255', Rule::unique('users', 'apellido')],
             'correo' => ['required', 'string', 'email', 'max:255', Rule::unique('users', 'correo')],
@@ -27,7 +27,7 @@ class LoginController extends Controller
         }
 
         $user = User::create([
-            'user' => $request->user,
+            //'user' => $request->user,
             'nombre' => $request->nombre,
             'apellido' => $request->apellido,
             'correo' => $request->correo,
@@ -36,7 +36,7 @@ class LoginController extends Controller
         
 
         Auth::login($user);
-        return redirect(route('panel'));
+        return redirect(route('home'));
     }
 
 

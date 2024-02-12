@@ -27,14 +27,14 @@
 
                                     <form action="{{ route('validar-registro') }}" method="post">
                                         @csrf
-
+{{-- 
                                         <div class="form-outline mb-4">
                                             <input type="text" id="form3Example1cg" class="form-control form-control-lg"
                                                 name="user" placeholder="Usuario" />
                                             @error('user')
                                                 <div class="mb-3" style="color: red">{{ $message }}</div>
                                             @enderror
-                                        </div>
+                                        </div> --}}
 
                                         <div class="form-outline mb-4">
                                             <input type="text" id="form3Example1cg" class="form-control form-control-lg"

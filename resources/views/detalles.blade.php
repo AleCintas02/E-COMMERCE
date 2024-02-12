@@ -26,7 +26,7 @@
                         <div class="md-prod-page-in">
                             <div class="page-preview">
                                 <div class="preview">
-                                    <div class="preview-pic tab-content">
+                                    <div class="preview-pic imagen-detalle">
                                         <div class="tab-pane active" id="pic-1"><img style="width: 500px"
                                                 src="{{ asset('storage/' . $producto->imagen) }}"
                                                 alt="{{ $producto->nombre }}" /></div>

@@ -177,6 +177,12 @@ textarea {
 	justify-content: center;
 }
 
+
+.imagen-detalle{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 /*------------------------------------------------------------- 
 	2. HEADER 
 -------------------------------------------------------------*/

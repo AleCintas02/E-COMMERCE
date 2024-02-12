@@ -64,3 +64,4 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/guardar-direccion', 'CarritoController@guardarDireccion')->name('carrito.guardar-direccion');
     Route::get('/confirmar-compra', 'CarritoController@confirmarCompra')->name('carrito.confirmar-compra');
 });
+

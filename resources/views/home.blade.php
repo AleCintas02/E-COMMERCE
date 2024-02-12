@@ -37,7 +37,7 @@
                                         alt="{{ $producto->nombre }}">
                                     <h4>${{ $producto->precio }}</h4>
             
-
+                                    
 
                                     <form action="{{ route('carrito.agregar', $producto->id) }}" method="POST">
                                         @csrf
