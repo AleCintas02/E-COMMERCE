@@ -2,11 +2,12 @@
 
 @section('content')
     <div class="container carrito-contenedor">
-        <h1>Carrito de compras</h1>
-
-        @if ($carrito->isEmpty())
-            <p>No hay productos en tu carrito.</p>
-        @else
+        <div class="contenedor-tabla-carrito">
+            {{-- <h1 class="titulo-carrito">Carrito de compras</h1>
+     --}}
+            @if ($carrito->isEmpty())
+                <p>No hay productos en tu carrito.</p>
+            @else
             <table class="table tabla">
                 <thead>
                     <tr>
@@ -43,11 +44,13 @@
                 </tbody>
             </table>
 
-            <div>
-                <a href="{{route('home')}}" class="btn btn-primary">Seguir comprando</a>
-                <a href="" class="btn btn-success">Procesar pago</a>
+            <div class="botones-carrito">
+                <a href="{{ route('home') }}" class="btn btn-primary">Seguir comprando</a>
+                <a href="{{ route('carrito.envio') }}" class="btn btn-success">Procesar pago</a>
 
             </div>
+
+        </div>
         @endif
     </div>
 @endsection

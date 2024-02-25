@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <div class="page-content-product" id="productos">
         <div class="main-product">
             <div class="container">
@@ -11,7 +12,7 @@
                         <form action="{{ route('home') }}" method="GET" class="mb-3">
                             <div class="input-group">
                                 <select class="form-select" name="categoria_id">
-                                    <option value="">Todo</option>
+                                    <option >Todo</option>
                                     @foreach ($categorias as $categoria)
                                         <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
                                     @endforeach
@@ -19,9 +20,7 @@
                                 <button type="submit" class="btn btn-primary">Buscar</button>
                             </div>
                         </form>
-                        <a href="{{ route('home') }}">Mostrar todo</a>
-
-
+                        <a class="todo" href="{{ route('home') }}">Mostrar todo</a>
                     </div>
                 </div>
                 <div class="row clearfix">
@@ -36,8 +35,8 @@
                                     <img class="img-product" src="{{ asset('storage/' . $producto->imagen) }}"
                                         alt="{{ $producto->nombre }}">
                                     <h4>${{ $producto->precio }}</h4>
-            
-                                    
+
+
 
                                     <form action="{{ route('carrito.agregar', $producto->id) }}" method="POST">
                                         @csrf
@@ -99,21 +98,17 @@
             </div>
         </div>
     </div>
+   
+        {{-- <script>
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Compra realizada con éxito, revisa los pedidos en tu CUENTA",
+                showConfirmButton: false,
+                timer: 10000
+            });
+        </script> --}}
+
+
+
 @endsection
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- HTML !-->

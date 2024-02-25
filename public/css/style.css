@@ -46,6 +46,10 @@ body {
 	margin: 0px;
 	overflow-x: hidden;
 	padding: 0px;
+	background-color: #09284b;
+	background-image: url('../images/bg_main.png');
+
+	background-position: center center;
 }
 
 h1,
@@ -73,13 +77,8 @@ ol {
 	padding: 0px;
 }
 
-a,
-a:hover,
-a:focus {
-	-webkit-text-decoration: none;
-	-moz-text-decoration: none;
-	-ms-text-decoration: none;
-	-o-text-decoration: none;
+a {
+
 	text-decoration: none;
 
 }
@@ -162,12 +161,78 @@ textarea {
 }
 
 .carrito-contenedor{
-	height: 100vh;
+	height: 95vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+	font-size: 1.2rem;
 }
+
+.contenedor-tabla-carrito{
+	background-color: white;
+	height: 800px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 30px;
+	border-radius: 40px;
+}
+
+.botones-carrito{
+	margin-top: 50px;
+}
+
+
+
+
+
+
+.contenedor-confirmar{
+	height: 95vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	font-size: 1.2rem;
+	
+}
+
+.contenedor-datos{
+	height: 95vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	font-size: 1.2rem;
+}
+
+.contenedor-formulario{
+	background-color: white;
+	height: 800px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 30px;
+
+	border-radius: 40px;
+}
+
+.contenedor-formulario form{
+	width: 90%;
+
+}
+
+.botones-datos{
+	margin-top: 50px;
+	display: flex;
+	justify-content: space-between;
+}
+
 
 .procesar-pago{
 	height: 100vh;
@@ -449,12 +514,20 @@ textarea {
 	color: #007dea;
 }
 
+.todo{
+	color: white;
+	
+
+}
+.todo:hover{
+
+
+}
 .box-img {
 	background: #051d36;
 	text-align: center;
-	padding-bottom: 30px;
-	min-height: 500px;
-	max-height: 500px;
+	min-height: 550px;
+	max-height: 550px;
 	margin-bottom: 30px;
 	position: relative;
 	border-bottom: solid #007dea 3px;
@@ -507,7 +580,7 @@ textarea {
 -------------------------------------------------------------*/
 
 .cat-main-box {
-	background: #f4f9fd;
+
 }
 
 .panel-row {
@@ -898,10 +971,11 @@ textarea {
 -------------------------------------------------------------*/
 
 .main-footer {
-	background-image: url('../images/footer_bg.png');
+	/*background-image: url('../images/footer_bg.png');*/
 	padding: 55px 0px 0px 0px;
 	background-size: cover;
 	background-position: center center;
+	display: flex;
 }
 
 .footer-top {

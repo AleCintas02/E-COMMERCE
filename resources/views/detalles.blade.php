@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="product-page-main">
-        <div class="container">
+        <div class="container contenedor-confirmar">
             <div class="row">
                 <div class="col-md-12">
                     <div class="prod-page-title">

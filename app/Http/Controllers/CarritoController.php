@@ -3,15 +3,54 @@
 namespace App\Http\Controllers;
 
 use App\Models\Carrito;
+use App\Models\DetallePedido;
+use App\Models\Pedido;
 use App\Models\Producto;
+use App\Services\CarritoService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CarritoController extends Controller
 {
+
+    protected $carritoService;
+    public function __construct(CarritoService $carritoService)
+    {
+        $this->carritoService = $carritoService;
+    }
+
     public function verCarrito()
     {
-        // Lógica para mostrar el contenido del carrito de compras
+        $datosCarrito = $this->carritoService->verCarrito();
+        return view('carrito', $datosCarrito);
+    }
+
+    public function agregarProducto(Request $request, $id)
+    {
+        $this->carritoService->agregarProducto($id);
+        return redirect()->route('carrito.ver')->with('success', 'Producto agregado al carrito correctamente');
+    }
+    public function eliminarProducto($id)
+    {
+        $this->carritoService->eliminarProducto($id);
+        return redirect()->route('carrito.ver')->with('success', 'Producto eliminado del carrito correctamente.');
+    }
+
+
+
+
+    public function ingresarDatosEnvio()
+    {
+        // Puedes agregar lógica adicional aquí si es necesario
+        return view('datos_envio');
+    }
+
+    public function comprar(Request $request)
+    {
+        // Obtener los datos del formulario de datos de envío
+        $datosEnvio = $request->only(['nombre', 'apellido', 'direccion', 'ciudad', 'codigo_postal']);
+
+        // Obtener el carrito del usuario actual
         $carrito = Carrito::where('user_id', Auth::id())->get();
 
         // Calcular el total del carrito
@@ -20,54 +59,45 @@ class CarritoController extends Controller
             $total += $item->producto->precio * $item->cantidad;
         }
 
-        return view('carrito', compact('carrito', 'total'));
+        // Redirigir a la página de confirmación de compra con los datos necesarios
+        return view('confirmar_compra', compact('carrito', 'total', 'datosEnvio'));
     }
 
-    public function agregarProducto(Request $request, $id)
+    public function confirmarCompra(Request $request)
     {
-        // Obtener el usuario autenticado
-        $user = Auth::user();
+        // Obtener los datos del formulario de confirmación de compra
+        $datosCompra = $request->only(['nombre', 'apellido', 'direccion', 'ciudad', 'codigo_postal']);
 
-        // Obtener el producto por su ID
-        $producto = Producto::findOrFail($id);
+        // Guardar los datos de la compra en la tabla 'pedidos' por ejemplo
+        $pedido = Pedido::create([
+            'user_id' => Auth::id(),
+            'nombre' => $datosCompra['nombre'],
+            'apellido' => $datosCompra['apellido'],
+            'direccion' => $datosCompra['direccion'],
+            'ciudad' => $datosCompra['ciudad'],
+            'codigo_postal' => $datosCompra['codigo_postal'],
+            // Puedes agregar más campos según tus necesidades
+        ]);
 
-        // Verificar si ya existe un registro en el carrito para el usuario y el producto
-        $carrito = Carrito::where('user_id', $user->id)
-            ->where('producto_id', $producto->id)
-            ->first();
+        // Obtener los productos en el carrito del usuario
+        $productosCarrito = Carrito::where('user_id', Auth::id())->get();
 
-        // Si el producto ya está en el carrito, aumentar la cantidad
-        if ($carrito) {
-            $carrito->cantidad += 1;
-            $carrito->save();
-        } else {
-            // Crear un nuevo registro en el carrito
-            Carrito::create([
-                'user_id' => $user->id,
-                'producto_id' => $producto->id,
-                'cantidad' => 1,
+        // Mover los productos del carrito al pedido
+        foreach ($productosCarrito as $productoCarrito) {
+            DetallePedido::create([
+                'pedido_id' => $pedido->id,
+                'producto_id' => $productoCarrito->producto_id,
+                'nombre_producto' => $productoCarrito->producto->nombre, // Agregar el nombre del producto
+                'cantidad' => $productoCarrito->cantidad,
+                'cantidad_pagada' => $productoCarrito->producto->precio * $productoCarrito->cantidad, // Calcular la cantidad pagada
+                // Puedes agregar más campos según tus necesidades
             ]);
         }
 
-        // Redireccionar a la página de carrito o a donde desees después de agregar el producto
-        return redirect()->route('carrito.ver')->with('success', 'Producto agregado al carrito correctamente');
+        // Eliminar los productos del carrito después de realizar la compra
+        Carrito::where('user_id', Auth::id())->delete();
+
+        // Redirigir a una página de confirmación o a donde desees
+        return redirect()->route('home')->with('success', '¡Compra realizada con éxito!');
     }
-    public function eliminarProducto($id)
-    {
-        // Buscar el producto en el carrito por su ID
-        $item = Carrito::findOrFail($id);
-
-        // Eliminar el producto del carrito
-        $item->delete();
-
-        // Redireccionar a la página del carrito con un mensaje de éxito
-        return redirect()->route('carrito.ver')->with('success', 'Producto eliminado del carrito correctamente.');
-    }
-
-    public function comprar(Request $request)
-    {
-        // Lógica para realizar el proceso de compra
-    }
-
-
 }

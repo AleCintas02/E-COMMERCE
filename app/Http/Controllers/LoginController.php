@@ -15,8 +15,8 @@ class LoginController extends Controller
     {
         $validator = Validator::make($request->all(), [
             //'user' => ['string', 'max:20', Rule::unique('users', 'user')],
-            'nombre' => ['required', 'string', 'max:255', Rule::unique('users', 'nombre')],
-            'apellido' => ['required', 'string', 'max:255', Rule::unique('users', 'apellido')],
+            'nombre' => ['required', 'string', 'max:255'],
+            'apellido' => ['required', 'string', 'max:255'],
             'correo' => ['required', 'string', 'email', 'max:255', Rule::unique('users', 'correo')],
             'password' => 'required|string|min:8|confirmed',
         ]);

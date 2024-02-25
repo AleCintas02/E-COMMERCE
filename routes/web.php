@@ -32,8 +32,18 @@ Route::middleware(['guest'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::view('/panel', 'panel')->name('panel');
+
+    //opciones de administrador
     Route::get('/admin-categorias', [CategoriaController::class, 'index'])->name('admin-categorias');
     Route::get('/admin-productos', [ProductoController::class, 'index'])->name('admin-productos');
+    Route::get('/admin-pedidos', [PedidoController::class, 'index'])->name('admin-pedidos');
+
+    Route::get('/filtrar-pedidos', [PedidoController::class, 'filtrarPedidos'])->name('filtrar-pedidos');
+    Route::post('/cambiar-estado-pedido/{id}', [PedidoController::class, 'cambiarEstadoPedido'])->name('pedido-estado');
+    Route::get('/pedido/{id}', [PedidoController::class, 'detallePedido'])->name('pedido-detalle');
+    Route::get('/mis-pedidos', [PedidoController::class, 'misPedidos'])->name('mis-pedidos');
+    Route::get('/pedido-detalle/{id}', [PedidoController::class, 'detalleMiPedido'])->name('mi-pedido-detalles');
+
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::post('categorias/guardar', [CategoriaController::class, 'guardarCategoria'])->name('categoria.guardar');
     Route::post('/guardar-producto', [ProductoController::class, 'agregarProducto'])->name('guardar_producto');
@@ -59,9 +69,7 @@ Route::middleware(['auth'])->group(function () {
     // Ruta para realizar el proceso de compra
     Route::post('/carrito/comprar', [CarritoController::class, 'comprar'])->name('carrito.comprar');
 
+    Route::get('/carrito/envio', [CarritoController::class, 'ingresarDatosEnvio'])->name('carrito.envio');
 
-    Route::get('/procesar-pago', 'CarritoController@procesarPago')->name('carrito.procesar-pago');
-    Route::post('/guardar-direccion', 'CarritoController@guardarDireccion')->name('carrito.guardar-direccion');
-    Route::get('/confirmar-compra', 'CarritoController@confirmarCompra')->name('carrito.confirmar-compra');
+    Route::post('/carrito/confirmar', [CarritoController::class, 'confirmarCompra'])->name('carrito.confirmar');
 });
-

@@ -23,6 +23,7 @@
         @else
         <p>Bienvenido, {{ Auth::user()->nombre }}!. Con el menu de opciones podrás gestionar tus pedidos y modifica tu información</p>
         @endif
+        
     @stop
 
     @section('css')

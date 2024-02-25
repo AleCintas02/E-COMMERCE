@@ -326,13 +326,8 @@ return [
         ['header' => 'Administración'],
         [
             'text' => 'Mis pedidos',
-            'url'  => 'admin/settings',
+            'url'  => '/mis-pedidos',
             'icon' => 'fas fa-fw fa-shopping-cart',
-        ],
-        [
-            'text' => 'Metodos de pago',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-credit-card',
         ],
         [
             'text'    => 'Mi Cuenta',
@@ -385,6 +380,11 @@ return [
                 [
                     'text'    => 'Productos',
                     'url'     => 'admin-productos',
+                    'icon' => 'fas fa-fw fa-arrow-circle-right',
+                ],
+                [
+                    'text'    => 'Pedidos',
+                    'url'     => 'admin-pedidos',
                     'icon' => 'fas fa-fw fa-arrow-circle-right',
                 ],
             ],
