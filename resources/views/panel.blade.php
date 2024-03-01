@@ -21,7 +21,7 @@
         @if (auth()->user()->role == 'root')
             <p>Bienvenido, {{ Auth::user()->nombre }}!. En el menu de opciones, podrás ver una opción llamada "ADMIN" en la que tendrás acceso la administración de la empresa</p>
         @else
-        <p>Bienvenido, {{ Auth::user()->nombre }}!. Con el menu de opciones podrás gestionar tus pedidos y modifica tu información</p>
+        <p>Bienvenido, {{ Auth::user()->nombre }}!. Estas en modo usuario, para conocer mas opciones de administrador comunicate con el desarrollador</p>
         @endif
         
     @stop

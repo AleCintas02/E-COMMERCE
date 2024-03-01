@@ -30,9 +30,8 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/inicia-sesion', [LoginController::class, 'login'])->name('inicia-sesion');
 });
 
-Route::middleware(['auth'])->group(function () {
-    Route::view('/panel', 'panel')->name('panel');
-
+Route::middleware(['auth', 'root'])->group(function () {
+    // Rutas que requieren que el usuario tenga el rol "root"
     //opciones de administrador
     Route::get('/admin-categorias', [CategoriaController::class, 'index'])->name('admin-categorias');
     Route::get('/admin-productos', [ProductoController::class, 'index'])->name('admin-productos');
@@ -41,10 +40,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/filtrar-pedidos', [PedidoController::class, 'filtrarPedidos'])->name('filtrar-pedidos');
     Route::post('/cambiar-estado-pedido/{id}', [PedidoController::class, 'cambiarEstadoPedido'])->name('pedido-estado');
     Route::get('/pedido/{id}', [PedidoController::class, 'detallePedido'])->name('pedido-detalle');
-    Route::get('/mis-pedidos', [PedidoController::class, 'misPedidos'])->name('mis-pedidos');
-    Route::get('/pedido-detalle/{id}', [PedidoController::class, 'detalleMiPedido'])->name('mi-pedido-detalles');
 
-    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::post('categorias/guardar', [CategoriaController::class, 'guardarCategoria'])->name('categoria.guardar');
     Route::post('/guardar-producto', [ProductoController::class, 'agregarProducto'])->name('guardar_producto');
     Route::delete('/eliminar-producto/{id}', [ProductoController::class, 'eliminarProducto'])->name('eliminar_producto');
@@ -54,8 +50,19 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/editar-CATEGORIA/{id}', [categoriaController::class, 'editarCategoria'])->name('editar_categoria');
     Route::delete('/eliminar-categoria/{id}', [CategoriaController::class, 'eliminarCategoria'])->name('eliminar_categoria');
     Route::put('/actualizar-categoria/{id}', [CategoriaController::class, 'actualizarCategoria'])->name('actualizar_categoria');
+    //opciones de administrador
+});
 
 
+Route::middleware(['auth'])->group(function () {
+    Route::view('/panel', 'panel')->name('panel');
+
+
+
+    Route::get('/mis-pedidos', [PedidoController::class, 'misPedidos'])->name('mis-pedidos');
+    Route::get('/pedido-detalle/{id}', [PedidoController::class, 'detalleMiPedido'])->name('mi-pedido-detalles');
+
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
     // Ruta para ver el contenido del carrito de compras
     Route::get('/carrito', [CarritoController::class, 'verCarrito'])->name('carrito.ver');

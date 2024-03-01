@@ -64,7 +64,7 @@ return [
     */
 
     'logo' => 'Cuenta',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => 'vendor/adminlte/dist/img/E-Commerce.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -86,7 +86,7 @@ return [
     'auth_logo' => [
         'enabled' => false,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'vendor/adminlte/dist/img/E-Commerce.png',
             'alt' => 'Auth Logo',
             'class' => '',
             'width' => 50,
@@ -109,7 +109,7 @@ return [
     'preloader' => [
         'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'vendor/adminlte/dist/img/E-Commerce.png',
             'alt' => 'AdminLTE Preloader Image',
             'effect' => 'animation__shake',
             'width' => 60,
@@ -329,45 +329,45 @@ return [
             'url'  => '/mis-pedidos',
             'icon' => 'fas fa-fw fa-shopping-cart',
         ],
-        [
-            'text'    => 'Mi Cuenta',
-            'icon'    => 'fas fa-fw fa-cog',
-            'submenu' => [
-                [
-                    'text' => 'Cambiar contraseña',
-                    'url'  => 'admin/settings',
-                    'icon' => 'fas fa-fw fa-lock',
-                ],
-                [
-                    'text'    => 'Información personal',
-                    'url'     => '#',
-                    'icon' => 'fas fa-fw fa-info',
-                    'submenu' => [
-                        [
-                            'text' => 'Nombre',
-                            'url'  => 'admin/settings',
-                            'icon' => 'fas fa-fw fa-edit',
-                        ],
-                        [
-                            'text' => 'Apellido',
-                            'url'  => 'admin/settings',
-                            'icon' => 'fas fa-fw fa-edit',
-                        ],
-                        [
-                            'text' => 'Teléfono',
-                            'url'  => 'admin/settings',
-                            'icon' => 'fas fa-fw fa-phone',
-                        ],
-                        [
-                            'text' => 'D.N.I.',
-                            'url'  => 'admin/settings',
-                            'icon' => 'fas fa-fw fa-address-card',
-                        ],
+        // [
+        //     'text'    => 'Mi Cuenta',
+        //     'icon'    => 'fas fa-fw fa-cog',
+        //     'submenu' => [
+        //         [
+        //             'text' => 'Cambiar contraseña',
+        //             'url'  => 'admin/settings',
+        //             'icon' => 'fas fa-fw fa-lock',
+        //         ],
+        //         [
+        //             'text'    => 'Información personal',
+        //             'url'     => '#',
+        //             'icon' => 'fas fa-fw fa-info',
+        //             'submenu' => [
+        //                 [
+        //                     'text' => 'Nombre',
+        //                     'url'  => 'admin/settings',
+        //                     'icon' => 'fas fa-fw fa-edit',
+        //                 ],
+        //                 [
+        //                     'text' => 'Apellido',
+        //                     'url'  => 'admin/settings',
+        //                     'icon' => 'fas fa-fw fa-edit',
+        //                 ],
+        //                 [
+        //                     'text' => 'Teléfono',
+        //                     'url'  => 'admin/settings',
+        //                     'icon' => 'fas fa-fw fa-phone',
+        //                 ],
+        //                 [
+        //                     'text' => 'D.N.I.',
+        //                     'url'  => 'admin/settings',
+        //                     'icon' => 'fas fa-fw fa-address-card',
+        //                 ],
 
-                    ],
-                ],
-            ],
-        ],
+        //             ],
+        //         ],
+        //     ],
+        // ],
         [
             'text'    => 'ADMIN',
             'icon'    => 'fas fa-fw fa-star',

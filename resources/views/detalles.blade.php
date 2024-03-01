@@ -4,18 +4,13 @@
     <div class="product-page-main">
         <div class="container contenedor-confirmar">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="prod-page-title">
-                        <h2>All setup Sofa</h2>
-                        <p>By <span>Dex Morgan Mobilya</span></p>
-                    </div>
-                </div>
+
             </div>
             <div class="row">
                 <div class="col-md-2 col-sm-4">
                     <div class="left-profile-box-m prod-page">
                         <div class="pof-text">
-                            <h3>Morgan Mobilya</h3>
+
                             <div class="check-box"></div>
                         </div>
 
@@ -43,8 +38,6 @@
                                 <p>{{ $producto->descripcion }}
                                 </p>
                                 <br>
-                                {{-- <p>Small: H 25 cm / &Oslash; 12 cm</p>
-                            <p>Large H 24 cm / &Oslash; 25 cm</p> --}}
                             </div>
                         </div>
                     </div>

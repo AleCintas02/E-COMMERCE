@@ -5,14 +5,14 @@
     <div class="page-content-product" id="productos">
         <div class="main-product">
             <div class="container">
-                <div class="row clearfix">
+                <div>
                     <div class="find-box mt-5">
                         <h1>Elige una categoría</h1>
 
                         <form action="{{ route('home') }}" method="GET" class="mb-3">
                             <div class="input-group">
                                 <select class="form-select" name="categoria_id">
-                                    <option >Todo</option>
+                                    <option>Todo</option>
                                     @foreach ($categorias as $categoria)
                                         <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
                                     @endforeach
@@ -23,8 +23,7 @@
                         <a class="todo" href="{{ route('home') }}">Mostrar todo</a>
                     </div>
                 </div>
-                <div class="row clearfix">
-
+                <div>
                     @if ($productos->isEmpty())
                         <p>No hay productos en esta categoría.</p>
                     @else
@@ -35,26 +34,16 @@
                                     <img class="img-product" src="{{ asset('storage/' . $producto->imagen) }}"
                                         alt="{{ $producto->nombre }}">
                                     <h4>${{ $producto->precio }}</h4>
-
-
-
                                     <form action="{{ route('carrito.agregar', $producto->id) }}" method="POST">
                                         @csrf
                                         <button type="submit" class="button-68 mb-3">Agregar al carrito</button>
                                     </form>
-
-
-
                                     <br>
                                     <a href="{{ route('producto-detalle', $producto->id) }}" class="mas-info">Mas info</a>
                                 </div>
                             </div>
                         @endforeach
                     @endif
-
-                    {{-- <div class="categories_link">
-                        <a href="#">Browse all categories here</a>
-                    </div> --}}
                 </div>
             </div>
         </div>
@@ -66,9 +55,8 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <img src="images/xpann-icon.jpg" class="icon-small" alt="">
-                            <h4>“Chamb” Your Business</h4>
-                            <p>Grow easily with chamb. Create free account.
-                                We help expanding your business easily.
+                            <h4>Lorem, ipsum dolor.</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, nisi.
                             </p>
                         </div>
                     </div>
@@ -77,9 +65,8 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <img src="images/create-icon.jpg" class="icon-small" alt="">
-                            <h4>Create and add</h4>
-                            <p>Grow easily with chamb. Create free account.
-                                We help expanding your business easily.
+                            <h4>Lorem, ipsum dolor.</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, nisi.
                             </p>
                         </div>
                     </div>
@@ -88,9 +75,8 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <img src="images/get-icon.jpg" class="icon-small" alt="">
-                            <h4>Get inspired</h4>
-                            <p>Grow easily with chamb. Create free account.
-                                We help expanding your business easily.
+                            <h4>Lorem, ipsum dolor.</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, nisi.
                             </p>
                         </div>
                     </div>
@@ -98,17 +84,5 @@
             </div>
         </div>
     </div>
-   
-        {{-- <script>
-            Swal.fire({
-                position: "center",
-                icon: "success",
-                title: "Compra realizada con éxito, revisa los pedidos en tu CUENTA",
-                showConfirmButton: false,
-                timer: 10000
-            });
-        </script> --}}
-
-
 
 @endsection

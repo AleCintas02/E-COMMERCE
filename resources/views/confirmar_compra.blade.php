@@ -13,19 +13,31 @@
 
             <h2>Productos en el carrito:</h2>
             <table class="table">
-                {{-- @foreach ($productos as $producto)
+                <thead>
                     <tr>
-                        <td>{{ $producto['nombre'] }}</td>
-                        <td>{{ $producto['cantidad'] }}</td>
-                        <td>${{ $producto['precio_unitario'] }}</td>
-                        <td>${{ $producto['subtotal'] }}</td>
+                        <th>Producto</th>
+                        <th>Precio unitario</th>
+                        <th>Cantidad</th>
+                        <th>Subtotal</th>
+                        <th></th>
                     </tr>
-                @endforeach --}}
+                </thead>
+                <tbody>
+                    @foreach ($carrito as $item)
+                        <tr>
+                            <td>{{ $item->producto->nombre }}</td>
+                            <td>${{ $item->producto->precio }}</td>
+                            <td>{{ $item->cantidad }}</td>
+                            <td>${{ $item->producto->precio * $item->cantidad }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
             </table>
 
-            <h2>Total: ${{ $total }}</h2>
+            <h2 class="mb-3">Total: ${{ $total }}</h2>
 
             <div class="btn-group">
+                <a href="{{ route('carrito.envio') }}" class="btn btn-danger"><i class="fa-solid fa-backward"></i></a>
                 <form method="POST" action="{{ route('carrito.confirmar') }}">
                     @csrf
                     <!-- Añadir campos ocultos para enviar los datos de envío -->
@@ -37,7 +49,7 @@
                     <!-- Otros campos ocultos según tus necesidades -->
                     <button type="submit" class="btn btn-success">Confirmar compra</button>
                 </form>
-                <a href="{{ route('carrito.envio') }}" class="btn btn-secondary">Atrás</a>
+                
             </div>
         </div>
     </div>
