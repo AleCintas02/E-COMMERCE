@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{asset('css/panel.css')}}">
+    <title>Panel</title>
 </head>
 
 <body>
@@ -14,16 +15,24 @@
     @section('title', 'Dashboard')
 
     @section('content_header')
-        
+
     @stop
 
     @section('content')
-        @if (auth()->user()->role == 'root')
-            <p>Bienvenido, {{ Auth::user()->nombre }}!. En el menu de opciones, podrás ver una opción llamada "ADMIN" en la que tendrás acceso la administración de la empresa</p>
-        @else
-        <p>Bienvenido, {{ Auth::user()->nombre }}!. Estas en modo usuario, para conocer mas opciones de administrador comunicate con el desarrollador</p>
-        @endif
+    <div class="contenedor-panel">
         
+        @if (auth()->user()->role == 'root')
+            <div class="alert alert-info">Bienvenido, {{ Auth::user()->nombre }}!. En el menu de opciones, podrás ver una
+                opción llamada "ADMIN" en la que tendrás acceso la administración de la empresa</div>
+        @else
+            <div class="alert alert-info">Bienvenido, {{ Auth::user()->nombre }}!. <br> IMPORTANTE:</strong> Esto es un simulador de un
+                E-Commerce completamente autogestionable y con todas sus funcionalidades, por ejemplo, agregar
+                productos, agregar categorias, gestionar pedidos, filtrar pedidos, etc. Las compras y pedidos que se
+                realizan, NO se cobran ni son reales. Para ver las opciones de administrador se necesitan permisos
+                especiales del desarrollador.</div>
+        @endif
+    </div>
+
     @stop
 
     @section('css')
@@ -31,9 +40,7 @@
     @stop
 
     @section('js')
-        <script>
-            
-        </script>
+        <script></script>
     @stop
 </body>
 

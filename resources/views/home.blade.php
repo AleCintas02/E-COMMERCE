@@ -7,6 +7,11 @@
             <div class="container">
                 <div>
                     <div class="find-box mt-5">
+                        <div class="alert alert-info"><strong>IMPORTANTE:</strong> Esto es un simulador de un
+                            E-Commerce completamente autogestionable y con todas sus funcionalidades, por ejemplo, agregar
+                            productos, agregar categorias, gestionar pedidos, filtrar pedidos, etc. Las compras y pedidos que se
+                            realizan, NO se cobran ni son reales. Para ver las opciones de administrador se necesitan permisos
+                            especiales del desarrollador.</div>
                         <h1>Elige una categoría</h1>
 
                         <form action="{{ route('home') }}" method="GET" class="mb-3">

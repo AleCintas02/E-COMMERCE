@@ -9,17 +9,11 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-
-
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.dataTables.min.css">
-
-
 
     <!--animate css-->
     <link rel="stylesheet" href="{{ asset('css/animate-wow.css') }}">
@@ -38,7 +32,7 @@
 
 
 
-    <title>Document</title>
+    <title>E-Commerce</title>
 </head>
 
 <body>
@@ -76,19 +70,6 @@
             </nav>
         </header>
 
-
-
-        {{-- <header class="header">
-            <a href="#" class="logo">DragonApi</a>
-
-            <i class='bx bx-menu' id="menu-icon"></i>
-
-            <nav class="navbar">
-                <a href="#home" class="active">Inicio</a>
-                <a href="#about">Info</a>
-                <a href="#services">Doc</a>
-            </nav>
-        </header> --}}
     @show
 
 
@@ -102,7 +83,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8">
-                            <p> Todos los derechos reservados. Alejandro Cintas &copy 2024</p>
+                            <p>&copy Alejandro Cintas 2024</p>
                         </div>
                     </div>
                 </div>
