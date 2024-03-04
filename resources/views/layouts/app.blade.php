@@ -97,12 +97,12 @@
     <!--main js-->
     <script src="js/jquery-1.12.4.min.js"></script>
     <!--bootstrap js-->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/bootstrap-select.min.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/wow.min.js"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap-select.min.js')}}"></script>
+    <script src="{{asset('js/slick.min.js')}}"></script>
+    <script src="{{asset('js/wow.min.js')}}"></script>
     <!--custom js-->
-    <script src="js/custom.js"></script>
+    <script src="{{asset('js/custom.js')}}"></script>
 
 
     <script src="https://kit.fontawesome.com/1d10b38d89.js" crossorigin="anonymous"></script>
