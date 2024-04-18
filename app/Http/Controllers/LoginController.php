@@ -11,59 +11,50 @@ use Illuminate\Validation\Rule;
 
 class LoginController extends Controller
 {
+
+
     public function register(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            //'user' => ['string', 'max:20', Rule::unique('users', 'user')],
-            'nombre' => ['required', 'string', 'max:255'],
-            'apellido' => ['required', 'string', 'max:255'],
-            'correo' => ['required', 'string', 'email', 'max:255', Rule::unique('users', 'correo')],
+        $validatedData = $request->validate([
+            'nombre' => 'required|string|max:255',
+            'apellido' => 'required|string|max:255',
+            'correo' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
-
-        if ($validator->fails()) {
-            return redirect(route('register'))->withErrors($validator)->withInput();
-        }
-
         $user = User::create([
-            //'user' => $request->user,
-            'nombre' => $request->nombre,
-            'apellido' => $request->apellido,
-            'correo' => $request->correo,
-            'password' => Hash::make($request->password),
+            'nombre' => $validatedData['nombre'],
+            'apellido' => $validatedData['apellido'],
+            'correo' => $validatedData['correo'],
+            'password' => Hash::make($validatedData['password']),
         ]);
-        
 
-        Auth::login($user);
-        return redirect(route('home'));
+        // Iniciar sesión después del registro
+        Auth::loginUsingId($user->id);
+
+        return redirect()->route('home');
     }
+
+
+
 
 
     public function login(Request $request)
     {
-        $request->validate([
-            'correo' => ['required', 'string', 'email', 'max:255'],
-            'password' => ['required', 'string', 'min:8'],
+        $credentials = $request->validate([
+            'correo' => 'required|email',
+            'password' => 'required',
         ]);
 
-        $credentials = $request->only('correo', 'password');
-
         if (Auth::attempt($credentials)) {
-            return redirect('/')->with('success', 'Inicio de sesión exitoso.');
+            $request->session()->regenerate();
+
+            return redirect()->intended('/');
         }
 
-        $user = User::where('correo', $request->correo)->first();
-
-        if (!$user) {
-            return back()->withErrors(['correo' => 'El correo electrónico proporcionado no está registrado.']);
-        }
-
-        if (!Hash::check($request->password, $user->password)) {
-            return back()->withErrors(['password' => 'La contraseña proporcionada es incorrecta.']);
-        }
-
-        return back()->withErrors(['correo' => 'Las credenciales proporcionadas no son válidas.']);
+        return back()->withErrors([
+            'error' => 'Las credenciales proporcionadas no coinciden con nuestros registros.',
+        ]);
     }
 
     public function logout(Request $request)

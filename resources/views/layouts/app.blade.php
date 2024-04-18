@@ -37,38 +37,61 @@
 
 <body>
     @section('header')
-        <header id="header" class="top-head">
-            <nav>
-                <input type="checkbox" id="check">
-                <label for="check" class="checkbtn">
-                    <i class="fas fa-bars"></i>
-                </label>
-                <a href="{{ route('home') }}" class="logo">logo</a>
-                <ul>
-                    <li style="padding-right: 20px">
+
+
+        <header>
+            <div class="container-hero">
+                <div class="container hero">
+                    <div class="customer-support">
+                        <i class="fa-solid fa-headset"></i>
+                        <div class="content-customer-support">
+                            <span class="text">Ayuda</span>
+                            <span class="number">123-456-7890</span>
+                        </div>
+                    </div>
+
+                    <div class="container-logo">
+                        <i class="fa-solid fa-shop"></i>
+                        <h1 class="logo"><a href="/">E-Commerce</a></h1>
+                    </div>
+
+                    <div class="container-user">
+                        @auth
+                            <a href="{{ route('panel') }}"><i class="fa-solid fa-user"></i></a>
+                        @else
+                            <li><a href="{{ route('login') }}">Iniciar sesión</a></li>
+                            <li><a href="{{ route('register') }}">Registrarse</a></li>
+                        @endauth
                         <a href="{{ route('carrito.ver') }}">
-                            <i class="fas fa-shopping-cart"></i>
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </a>
+                        <div class="content-shopping-cart">
+
+                            <span class="text">Carrito</span>
+
                             @auth
                                 @if (Auth::user()->carritos->sum('cantidad') > 0)
-                                    <span class="badge"
-                                        style=" position: absolute; margin-right: 100px; margin-top: 30px;">{{ Auth::user()->carritos->sum('cantidad') }}</span>
+                                    <span class="number">({{ Auth::user()->carritos->sum('cantidad') }})</span>
                                 @endif
                             @endauth
-                        </a>
-                    </li>
-                    <li><a href="{{ route('home') }}">Inicio</a></li>
-                    @auth
-                        <li><a href="{{ route('panel') }}">Cuenta</a></li>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                        <li><a href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket"></i></a></li>
-                    @else
-                        <li><a href="{{ route('login') }}">Iniciar sesión</a></li>
-                        <li><a href="{{ route('register') }}">Registrarse</a></li>
-                    @endauth
-                </ul>
-            </nav>
+            <div class="container-navbar">
+                <nav class="navbar container">
+                    <i class="fa-solid fa-bars"></i>
+                    <ul class="menu">
+                        <li><a href="#banner">Inicio</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#galeria">Galeria</a></li>
+                    </ul>
+                </nav>
+            </div>
         </header>
+
 
     @show
 
@@ -78,7 +101,7 @@
     </div>
 
     @section('footer')
-        <footer>
+        {{-- <footer>
             <div class="copyright">
                 <div class="container">
                     <div class="row">
@@ -88,7 +111,88 @@
                     </div>
                 </div>
             </div>
+        </footer> --}}
+
+
+        <footer class="footer">
+            <div class="container container-footer">
+                <div class="menu-footer">
+                    <div class="contact-info">
+                        <p class="title-footer">Información de Contacto</p>
+                        <ul>
+                            <li>
+                                Dirección: Lorem ipsum dolor sit.
+                                06066
+                            </li>
+                            <li>Teléfono: 123-456-7890</li>
+                            <li>EmaiL: example@support.com</li>
+                        </ul>
+                        <div class="social-icons">
+                            <span class="facebook">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </span>
+                            <span class="twitter">
+                                <i class="fa-brands fa-twitter"></i>
+                            </span>
+                            <span class="youtube">
+                                <i class="fa-brands fa-youtube"></i>
+                            </span>
+                            <span class="pinterest">
+                                <i class="fa-brands fa-pinterest-p"></i>
+                            </span>
+                            <span class="instagram">
+                                <i class="fa-brands fa-instagram"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="information">
+                        <p class="title-footer">Información</p>
+                        <ul>
+                            <li><a href="#">Acerca de Nosotros</a></li>
+                            <li><a href="#">Información envíos</a></li>
+                            <li><a href="#">Politicas de Privacidad</a></li>
+                            <li><a href="#">Términos y condiciones</a></li>
+                            <li><a href="#">Contactános</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="my-account">
+                        <p class="title-footer">Mi cuenta</p>
+
+                        <ul>
+                            <li><a href="#">Mi cuenta</a></li>
+                            <li><a href="#">Historial de pedidos</a></li>
+                            <li><a href="#">Carrito</a></li>
+                            <li><a href="#">Boletín</a></li>
+                            <li><a href="#">Reembolsos</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="newsletter">
+                        <p class="title-footer">Boletín informativo</p>
+
+                        <div class="content">
+                            <p>
+                                Suscríbete a nuestros boletines ahora y mantente al
+                                día con nuevas colecciones y ofertas exclusivas.
+                            </p>
+                            <input type="email" placeholder="Ingresa el correo aquí...">
+                            <button>Suscríbete</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="copyright">
+                    <p>
+                        Desarrollado por Alejandro &copy; 2024
+                    </p>
+
+                    <img src="img/payment.png" alt="Pagos">
+                </div>
+            </div>
         </footer>
+
     @show
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -97,12 +201,12 @@
     <!--main js-->
     <script src="js/jquery-1.12.4.min.js"></script>
     <!--bootstrap js-->
-    <script src="{{asset('js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('js/bootstrap-select.min.js')}}"></script>
-    <script src="{{asset('js/slick.min.js')}}"></script>
-    <script src="{{asset('js/wow.min.js')}}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ asset('js/slick.min.js') }}"></script>
+    <script src="{{ asset('js/wow.min.js') }}"></script>
     <!--custom js-->
-    <script src="{{asset('js/custom.js')}}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
 
 
     <script src="https://kit.fontawesome.com/1d10b38d89.js" crossorigin="anonymous"></script>
@@ -113,7 +217,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
-    <script></script>
+
 </body>
 
 </html>

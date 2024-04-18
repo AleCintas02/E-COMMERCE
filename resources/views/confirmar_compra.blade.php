@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container contenedor-confirmar">
-        <div class="contenedor-formulario">
+    <div class="container ct1-confirmar">
+        <div class="ct2-confirmar">
             <h1>Confirmar compra</h1>
             <h2>Datos de envío:</h2>
             <p>Nombre: {{ $datosEnvio['nombre'] }}</p>

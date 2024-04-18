@@ -27,7 +27,7 @@
 
                                     <form action="{{ route('validar-registro') }}" method="post">
                                         @csrf
-{{-- 
+                                        {{-- 
                                         <div class="form-outline mb-4">
                                             <input type="text" id="form3Example1cg" class="form-control form-control-lg"
                                                 name="user" placeholder="Usuario" />
@@ -40,7 +40,7 @@
                                             <input type="text" id="form3Example1cg" class="form-control form-control-lg"
                                                 name="nombre" placeholder="Nombre" />
                                             @error('nombre')
-                                                <div class="mb-3" style="color: red">{{ $message }}</div>
+                                                <span style="color: red">{{ $message }}</span>
                                             @enderror
                                         </div>
 
@@ -48,7 +48,7 @@
                                             <input type="text" id="form3Example1cg" class="form-control form-control-lg"
                                                 name="apellido" placeholder="Apellido" />
                                             @error('apellido')
-                                                <div class="mb-3" style="color: red">{{ $message }}</div>
+                                                <span style="color: red">{{ $message }}</span>
                                             @enderror
                                         </div>
 
@@ -57,15 +57,16 @@
                                             <input type="email" id="form3Example3cg" class="form-control form-control-lg"
                                                 name="correo" placeholder="Correo" />
                                             @error('correo')
-                                                <div class="mb-3" style="color: red">{{ $message }}</div>
+                                                <span style="color: red">{{ $message }}</span>
                                             @enderror
                                         </div>
 
                                         <div class="form-outline mb-4">
                                             <input type="password" id="form3Example4cg" class="form-control form-control-lg"
                                                 name="password" placeholder="Contraseña" />
+
                                             @error('password')
-                                                <div class="mb-3" style="color: red">{{ $message }}</div>
+                                                <span style="color: red">{{ $message }}</span>
                                             @enderror
                                         </div>
 
@@ -73,9 +74,6 @@
                                             <input type="password" id="form3Example4cdg"
                                                 class="form-control form-control-lg" name="password_confirmation"
                                                 placeholder="Repetir contraseña" />
-                                            @error('password_confirmation')
-                                                <div class="mb-3" style="color: red">{{ $message }}</div>
-                                            @enderror
                                         </div>
 
 

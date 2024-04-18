@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container carrito-contenedor">
-        <div class="contenedor-tabla-carrito">
+    <div class="container ct1">
+        <div class="ct2">
             {{-- <h1 class="titulo-carrito">Carrito de compras</h1>
      --}}
             @if ($carrito->isEmpty())

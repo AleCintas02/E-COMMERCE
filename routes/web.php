@@ -19,8 +19,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/ejemplo', function () {
+    return view('ejemplo');
+});
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/producto/{id}', [ProductoController::class, 'detalleProducto'])->name('producto-detalle');
+
 
 
 Route::middleware(['guest'])->group(function () {
@@ -56,7 +61,8 @@ Route::middleware(['auth', 'root'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::view('/panel', 'panel')->name('panel');
-
+    
+    Route::post('/filtrar-productos', [HomeController::class, 'filtrarProductos'])->name('filtrar.productos');
 
 
     Route::get('/mis-pedidos', [PedidoController::class, 'misPedidos'])->name('mis-pedidos');

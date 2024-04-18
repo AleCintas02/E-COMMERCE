@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container contenedor-datos">
-        <div class="contenedor-formulario">
+    <div class="container ct1">
+        <div class="ct2">
 
             <h1>Ingrese los datos para el envío</h1>
             <form method="POST" action="{{ route('carrito.comprar') }}">
