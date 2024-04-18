@@ -15,12 +15,10 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.dataTables.min.css">
 
-    <!--animate css-->
-    <link rel="stylesheet" href="{{ asset('css/animate-wow.css') }}">
+
     <!--main css-->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
     <!--responsive css-->
-    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
     <script src="https://kit.fontawesome.com/1d10b38d89.js" crossorigin="anonymous"></script>
     <!-- Site CSS -->
     <link rel="stylesheet" href="{{ asset('css/carrito/style.css') }}">
