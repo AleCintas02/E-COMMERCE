@@ -17,7 +17,7 @@
 
 
     <!--main css-->
-    <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
     <!--responsive css-->
     <script src="https://kit.fontawesome.com/1d10b38d89.js" crossorigin="anonymous"></script>
     <!-- Site CSS -->
