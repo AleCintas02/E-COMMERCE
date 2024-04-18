@@ -23,9 +23,7 @@
     <!-- Site CSS -->
     <link rel="stylesheet" href="{{ asset('css/carrito/style.css') }}">
     <!-- Responsive CSS -->
-    <link rel="stylesheet" href="{{ asset('css/carrito/responsive.css') }}">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('css/carrito/custom.css') }}">
+
 
 
 
