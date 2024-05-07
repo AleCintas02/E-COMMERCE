@@ -3,8 +3,7 @@
 @section('content')
     <div class="container ct1">
         <div class="ct2">
-            {{-- <h1 class="titulo-carrito">Carrito de compras</h1>
-     --}}
+
             @if ($carrito->isEmpty())
                 <p>No hay productos en tu carrito.</p>
             @else

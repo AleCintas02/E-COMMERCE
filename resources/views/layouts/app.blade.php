@@ -21,8 +21,7 @@
     <!--responsive css-->
     <script src="https://kit.fontawesome.com/1d10b38d89.js" crossorigin="anonymous"></script>
     <!-- Site CSS -->
-    <link rel="stylesheet" href="{{ asset('css/carrito/style.css') }}">
-    <!-- Responsive CSS -->
+
 
 
 
@@ -217,3 +216,13 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
