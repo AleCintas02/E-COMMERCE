@@ -17,14 +17,10 @@
 
 
     <!--main css-->
-    <link rel="stylesheet" href="{{ asset('style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
     <!--responsive css-->
     <script src="https://kit.fontawesome.com/1d10b38d89.js" crossorigin="anonymous"></script>
     <!-- Site CSS -->
-
-
-
-
 
 
     <title>E-Commerce</title>
@@ -54,15 +50,14 @@
                         @auth
                             <a href="{{ route('panel') }}"><i class="fa-solid fa-user"></i></a>
                         @else
-                            <li><a href="{{ route('login') }}">Iniciar sesión</a></li>
-                            <li><a href="{{ route('register') }}">Registrarse</a></li>
+                            <li><a class="iniciar" href="{{ route('login') }}">Iniciar sesión</a></li>
+                            <li><a class="registrarse" href="{{ route('register') }}">Registrarse</a></li>
                         @endauth
                         <a href="{{ route('carrito.ver') }}">
                             <i class="fa-solid fa-basket-shopping"></i>
                         </a>
                         <div class="content-shopping-cart">
 
-                            <span class="text">Carrito</span>
 
                             @auth
                                 @if (Auth::user()->carritos->sum('cantidad') > 0)

@@ -16,6 +16,39 @@ html {
     box-sizing: border-box;
 }
 
+/* Estilo para los elementos de lista */
+li {
+    display: inline; /* Para que los elementos se muestren en línea */
+    margin-right: 20px; /* Espaciado entre los elementos */
+}
+
+/* Estilo general para los enlaces */
+li a {
+    text-decoration: none; /* Quitar el subrayado */
+    color: #333; /* Color del texto */
+    font-weight: bold; /* Texto en negrita */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s, color 0.3s; /* Transición suave para cambios de color */
+}
+
+/* Estilo específico para el enlace de iniciar sesión */
+li a.iniciar {
+    background-color: #4CAF50; /* Color de fondo */
+    color: white; /* Color del texto */
+}
+
+/* Estilo específico para el enlace de registrarse */
+li a.registrarse {
+    background-color: #008CBA; /* Color de fondo */
+    color: white; /* Color del texto */
+}
+
+/* Efecto al pasar el ratón sobre los enlaces */
+li a:hover {
+    background-color: #ddd; /* Cambiar color de fondo */
+    color: #333; /* Cambiar color del texto */
+}
 /* ********************************** */
 /*             UTILIDADES             */
 /* ********************************** */
@@ -95,6 +128,9 @@ header{
     display: flex;
     align-items: center;
     gap: 2rem;
+}
+.iniciar{
+    color: #000;
 }
 
 .customer-support i {
