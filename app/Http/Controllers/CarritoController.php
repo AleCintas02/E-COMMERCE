@@ -41,7 +41,7 @@ class CarritoController extends Controller
 
     public function ingresarDatosEnvio()
     {
-        // Puedes agregar lógica adicional aquí si es necesario
+        
         return view('datos_envio');
     }
 
@@ -90,7 +90,7 @@ class CarritoController extends Controller
                 'nombre_producto' => $productoCarrito->producto->nombre, // Agregar el nombre del producto
                 'cantidad' => $productoCarrito->cantidad,
                 'cantidad_pagada' => $productoCarrito->producto->precio * $productoCarrito->cantidad, // Calcular la cantidad pagada
-                // Puedes agregar más campos según tus necesidades
+                
             ]);
         }
 

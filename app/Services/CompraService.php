@@ -17,7 +17,7 @@ class CompraService
 
     public function procesarCompra($datosCompra)
     {
-        // Guardar los datos de la compra en la tabla 'pedidos' por ejemplo
+        // Guardar los datos de la compra en la tabla 'pedidos'
         $pedido = Pedido::create([
             'user_id' => Auth::id(),
             'nombre' => $datosCompra['nombre'],
