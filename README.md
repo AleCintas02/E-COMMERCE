@@ -19,3 +19,6 @@
 </ul>
 
 <img src="./e-commerce.png" alt="" />
+<img src="./productos.png" alt="" />
+<img src="./pedidos.png" alt="" />
+<img src="./categorias.png" alt="" />
