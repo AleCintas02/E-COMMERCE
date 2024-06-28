@@ -17,3 +17,5 @@
     <li>Carrito de compras</li>
     <li>Realizar compra</li>
 </ul>
+
+<img src="./e-commerce.png" alt="" />
