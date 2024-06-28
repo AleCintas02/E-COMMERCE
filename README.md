@@ -1,6 +1,6 @@
 ## E-COMMERCE
 
-<p> Sitema completo de E-COMMERCE que contiene: </p>
+<h2> Sitema completo de E-COMMERCE que contiene: </h2>
 
 <h3>ADMINISTRACIÓN:</h3>
 <ul> 
